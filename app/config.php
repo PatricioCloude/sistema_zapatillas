@@ -13,4 +13,6 @@
         //print_r($e);
         echo "Error al conectar la base de datos D:";
     }
+
+    $URL = "http://localhost/bd2";
 ?>

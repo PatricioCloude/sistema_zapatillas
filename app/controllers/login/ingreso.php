@@ -21,5 +21,8 @@
         echo "Datos inconrrectos, vuelva a intentarlo";
     }else{
         echo "Datos correctos";
+        session_start();
+        $_SESSION['session_email'] = $email;
+        header ('Location:'.$URL.'/index.php');
     }
 ?>
