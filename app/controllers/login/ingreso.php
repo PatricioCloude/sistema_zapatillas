@@ -19,10 +19,13 @@
     }
     if($contador == 0){
         echo "Datos inconrrectos, vuelva a intentarlo";
+        session_start();
+        $_SESSION['mensaje'] = "Error datos incorrectos";
+        header('Location: '.$URL.'/login');
     }else{
         echo "Datos correctos";
         session_start();
         $_SESSION['session_email'] = $email;
-        header ('Location:'.$URL.'/index.php');
+        header ('Location: '.$URL.'/index.php');
     }
 ?>

@@ -13,10 +13,32 @@
   <link rel="stylesheet" href="../public/templeates/AdminLTE-3.2.0/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../public/templeates/AdminLTE-3.2.0/dist/css/adminlte.min.css">
+
+  <!-- Libreria de alertas -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
   <!-- /.login-logo -->
+
+  <?php
+  session_start();
+    if(isset($_SESSION['mensaje'])){
+      $respuesta = $_SESSION['mensaje']; ?>
+    <script>
+        Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: '<?php echo $respuesta ?>',
+          showConfirmButton: false,
+          timer: 2000
+        })
+    </script>
+  <?php    
+    }
+  ?>
+
   <center>
     <img src="https://img.freepik.com/vector-gratis/composicion-isometrica-produccion-zapatos-calzado-vista-lugar-trabajo-disenadores-computadora-zapatos-ilustracion-estantes_1284-62044.jpg?w=826&t=st=1693027603~exp=1693028203~hmac=907f3ba71be959e65cbe42666dd41401d11c41b096098f2d27315265747db67b" alt="" width="300px">
   </center>
