@@ -264,6 +264,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
     <!-- /.content-header -->
 
+    <a href="<?php echo $URL; ?>/app/controllers/login/cerrar_sesion.php" class="btn btn-danger">Cerrar Session</a>
+
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
