@@ -1,8 +1,8 @@
 <?php
-  include ('app/config.php');
-  include ('layout/sesion.php');
+  include ('../app/config.php');
+  include ('../layout/sesion.php');
 
-  include ('layout/parte1.php');
+  include ('../layout/parte1.php');
 
 ?>
 
@@ -14,7 +14,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-12">
-            <h1 class="m-0">Bienvenido al sistema de Ventas de Zapatillas</h1>
+            <h1 class="m-0">Registro de un nuevo Usuario</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -32,4 +32,4 @@
     <!-- /.content -->
   </div>
 
-  <?php include ('layout/parte2.php'); ?>
+  <?php include ('../layout/parte2.php'); ?>
