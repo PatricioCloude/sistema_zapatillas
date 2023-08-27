@@ -44,7 +44,7 @@
     <div class="content">
       <div class="container-fluid">
           <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
               
                 <div class="card card-outline card-primary">
                 <div class="card-header">
@@ -58,13 +58,18 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body" style="display: block;">
-                    <table class="table table-bordered table-hover table-striped table-sm">
-                        <tr>
-                            <th><center>Nro</center></th>
-                            <th><center>Nombres</center></th>
-                            <th><center>Email</center></th>
-                        </tr>
-                        <tbody>
+
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                      <th><center>Nro</center></th>
+                      <th><center>Nombres</center></th>
+                      <th><center>Email</center></th>
+                    </tr>
+                    </thead>
+
+
+                    <tbody>
                         <?php
                         $contador = 0;
                           foreach ($usuarios_datos as $usuarios_dato){
@@ -77,8 +82,18 @@
                         <?php 
                           }
                         ?>
-                        </tbody>
-                    </table>
+                    </tbody>
+
+                    <tfoot>
+                    <tr>
+                      <th><center>Nro</center></th>
+                      <th><center>Nombres</center></th>
+                      <th><center>Email</center></th>
+                    </tr>
+                    </tfoot>
+                </table>
+
+
                 </div>
                 <!-- /.card-body -->
                 </div>
@@ -96,3 +111,49 @@
   </div>
 
   <?php include ('../layout/parte2.php'); ?>
+
+  <script>
+    $(function () {
+      $("#example1").DataTable({
+
+        "pageLength": 5,
+          language: {
+              "emptyTable": "No hay información",
+              "decimal": "",
+              "info": "Mostrando _START_ a _END_ de _TOTAL_ Usuarios",
+              "infoEmpty": "Mostrando 0 a 0 de 0 Usuarios",
+              "infoFiltered": "(Filtrado de MAX total Usuarios)",
+              "infoPostFix": "",
+              "thousands": ",",
+              "lengthMenu": "Mostrar _MENU_ de usuarios",
+              "loadingRecords": "Cargando...",
+              "processing": "Procesando...",
+              "search": "Buscador:",
+              "zeroRecords": "Sin resultados encontrados",
+              "paginate": {
+                  "first": "Primero",
+                  "last": "Ultimo",
+                  "next": "Siguiente",
+                  "previous": "Anterior"
+              }
+             },
+
+        "responsive": true, "lengthChange": true, "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+      });
+    });
+  </script>
+
+
+
+
+
