@@ -4,6 +4,8 @@
 
   include ('../layout/parte1.php');
 
+  include ('../app/controllers/usuarios/show_usuario.php');
+
 ?>
 
 
@@ -44,45 +46,27 @@
                     <div class="row">
                       <div class="col-md-12">
 
-                        <form action="../app/controllers/usuarios/create.php" method = "post">
+                        
                           <div class="form-group">
                             <label for="">Nombres</label>
-                            <input type="text" name="nombres" class="form-control" placeholder="Escriba aqui el nombre del nuevo usuario">
+                            <input type="text" name="nombres" class="form-control" value="<?php echo $nombres;?>" disabled>
                           </div>
                           <div class="form-group">
                             <label for="">Email</label>
-                            <input type="email" name="email" class="form-control" placeholder="Escriba aqui el correo del nuevo usuario">
+                            <input type="email" name="email" class="form-control" value="<?php echo $email;?>" disabled>
                           </div>
-                          <div class="form-group">
-                            <label for="">Contraseña</label>
-                            <input type="text" name="password_user" class="form-control">
-                          </div>
-                          <div class="form-group">
-                            <label for="">Repita la contraseña</label>
-                            <input type="text" name="password_repeat" class="form-control">
-                          </div>
+
                           <hr>
                           <div class="form-group">
-                            <a href="index.php" class="btn btn-secondary">Cancelar</a>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <a href="index.php" class="btn btn-secondary">Regresar</a>
                           </div>
-                        </form>
+                        
                       </div>
 
                     </div>
                 </div>
                 <!-- /.card-body -->
                 </div>
-
-
-
-
-
-
-
-
-
-
 
             </div>
           </div>

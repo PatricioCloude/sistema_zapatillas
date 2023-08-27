@@ -6,22 +6,6 @@
 
   include ('../app/controllers/usuarios/listado_de_usuarios.php');
 
-  if(isset($_SESSION['mensaje'])){
-    $respuesta = $_SESSION['mensaje'];
-?>
-  <script>
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: '<?php echo $respuesta ?>',
-          showConfirmButton: false,
-          timer: 2500
-        })
-  </script>
-<?php
-  unset($_SESSION['mensaje']); //destruye la sesion de una variable especifica
-  }
-
 ?>
 
 
@@ -65,6 +49,7 @@
                       <th><center>Nro</center></th>
                       <th><center>Nombres</center></th>
                       <th><center>Email</center></th>
+                      <th><center>Acciones</center></th>
                     </tr>
                     </thead>
 
@@ -73,11 +58,21 @@
                         <?php
                         $contador = 0;
                           foreach ($usuarios_datos as $usuarios_dato){
+                            $id_usuario = $usuarios_dato['id_usuario'];
                         ?>
                           <tr>
                             <td><center><?php echo $contador = $contador +1 ;?></center></td>
                             <td><?php echo $usuarios_dato['nombres'];?></td>
                             <td><?php echo $usuarios_dato['email'];?></td>
+                            <td>
+                            <center>
+                              <div class="btn-group">
+                                <a href="show.php?id=<?php echo $id_usuario; ?>"  type="button" class="btn btn-info"><i class="fa fa-eye"></i>  Ver</a>
+                                <button type="button" class="btn btn-success"><i class="fa fa-pencil-alt"></i>  Editar</button>
+                                <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i>  Borrar</button>
+                              </div>
+                            </center>
+                            </td>
                           </tr>   
                         <?php 
                           }
@@ -89,6 +84,7 @@
                       <th><center>Nro</center></th>
                       <th><center>Nombres</center></th>
                       <th><center>Email</center></th>
+                      <th><center>Acciones</center></th>
                     </tr>
                     </tfoot>
                 </table>
@@ -139,7 +135,30 @@
              },
 
         "responsive": true, "lengthChange": true, "autoWidth": false,
-        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        buttons: [{
+            extend:'collection',
+            text:'Reportes',
+            orientacion: 'landscape',
+            buttons:[{
+                text:'Copiar',
+                extend:'copy',
+            },{
+              extend:'pdf'
+            },{
+              extend:'csv'
+            },{
+              extend:'excel'
+            },{
+              text: 'Imprimir',
+              extend: 'print'
+            }]
+        },
+          {
+            extend:'colvis',
+            text:'Visor de columnas',
+            collectionLayout: 'fixed three-column'
+          }
+        ],
       }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
       $('#example2').DataTable({
         "paging": true,
@@ -152,6 +171,8 @@
       });
     });
   </script>
+
+
 
 
 
