@@ -15,4 +15,7 @@
     }
 
     $URL = "http://localhost/bd2";
+
+    date_default_timezone_set('America/Lima');
+    $fechaHora = date('Y-m-d H:i:s');
 ?>

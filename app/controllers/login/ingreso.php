@@ -5,9 +5,12 @@
     $email = $_POST['email'];
     $password_user = $_POST['password_user'];
 
+
+
+
     $contador = 0;
     
-    $sql = "SELECT * FROM usuarios WHERE email = '$email' AND password_user = '$password_user'";
+    $sql = "SELECT * FROM usuarios WHERE email = '$email'";
     $query = $pdo->prepare($sql);
     $query->execute();
 
@@ -16,16 +19,18 @@
         $contador = $contador + 1;
         $email_tabla = $usuario['email'];
         $nombres = $usuario['nombres'];
+        $password_user_tabla = $usuario['password_user'];
     }
-    if($contador == 0){
-        echo "Datos inconrrectos, vuelva a intentarlo";
-        session_start();
-        $_SESSION['mensaje'] = "Error datos incorrectos";
-        header('Location: '.$URL.'/login');
-    }else{
+
+    if(($contador > 0) && password_verify($password_user, $password_user_tabla)){ // fromulario || CONTRA BD
         echo "Datos correctos";
         session_start();
         $_SESSION['session_email'] = $email;
         header ('Location: '.$URL.'/index.php');
+    }else{
+        echo "Datos inconrrectos, vuelva a intentarlo";
+        session_start();
+        $_SESSION['mensaje'] = "Error datos incorrectos";
+        header('Location: '.$URL.'/login');
     }
 ?>
