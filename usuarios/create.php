@@ -4,6 +4,21 @@
 
   include ('../layout/parte1.php');
 
+  if(isset($_SESSION['mensaje'])){
+    $respuesta = $_SESSION['mensaje'];
+?>
+  <script>
+        Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: '<?php echo $respuesta ?>',
+          showConfirmButton: false,
+          timer: 2500
+        })
+  </script>
+<?php
+  unset($_SESSION['mensaje']); //destruye la sesion de una variable especifica
+  }
 ?>
 
 
@@ -63,7 +78,7 @@
                           </div>
                           <hr>
                           <div class="form-group">
-                            <a href="" class="btn btn-secondary">Cancelar</a>
+                            <a href="index.php" class="btn btn-secondary">Cancelar</a>
                             <button type="submit" class="btn btn-primary">Guardar</button>
                           </div>
                         </form>

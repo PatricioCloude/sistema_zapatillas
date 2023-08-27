@@ -20,8 +20,15 @@
 
         $sentencia->execute();
 
+        session_start();
+        $_SESSION['mensaje'] = "Se registro exitosamente al usuario";
+        header('Location: '.$URL.'/usuarios/ ');
+
     }else{
-        echo "Las contraseñas no son iguales";
+        //echo "Las contraseñas no son iguales";
+        session_start();
+        $_SESSION['mensaje'] = "Error las contraseñas no son iguales";
+        header('Location: '.$URL.'/usuarios/create.php');
     }
 
 
