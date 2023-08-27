@@ -6,6 +6,21 @@
 
   include ('../app/controllers/usuarios/listado_de_usuarios.php');
 
+  if(isset($_SESSION['mensaje'])){
+    $respuesta = $_SESSION['mensaje'];
+?>
+  <script>
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: '<?php echo $respuesta ?>',
+          showConfirmButton: false,
+          timer: 2500
+        })
+  </script>
+<?php
+  unset($_SESSION['mensaje']); //destruye la sesion de una variable especifica
+}
 ?>
 
 
