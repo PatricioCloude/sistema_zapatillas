@@ -4,6 +4,9 @@
 
   include ('../layout/parte1.php');
 
+  include ('../app/controllers/usuarios/listado_de_usuarios.php');
+
+
 ?>
 
 
@@ -25,7 +28,51 @@
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-          Contenido del Sistema
+          <div class="row">
+            <div class="col-md-8">
+              
+                <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Lista de Usuarios</h3>
+
+                    <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                    </button>
+                    </div>
+                    <!-- /.card-tools -->
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body" style="display: block;">
+                    <table class="table table-bordered table-hover table-striped table-sm">
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombres</th>
+                            <th>Email</th>
+                        </tr>
+                        <tbody>
+                        <?php
+                          foreach ($usuarios_datos as $usuarios_dato){
+                        ?>
+                          <tr>
+                            <td><?php echo $usuarios_dato['id_usuario'];?></td>
+                            <td><?php echo $usuarios_dato['nombres'];?></td>
+                            <td><?php echo $usuarios_dato['email'];?></td>
+                          </tr>   
+                        <?php 
+                          }
+                        ?>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+                </div>
+
+
+
+
+            </div>
+          </div>
+
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
