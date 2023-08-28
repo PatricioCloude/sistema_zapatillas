@@ -52,11 +52,11 @@
                             
                                 <div class="form-group">
                                     <label for="">Nombres</label>
-                                    <input type="text" name="nombres" class="form-control" value="<?php echo $nombres;?>" placeholder="Escriba aqui el nombre del nuevo usuario">
+                                    <input type="text" name="nombres" class="form-control" value="<?php echo $nombres;?>" placeholder="Escriba aqui el nombre del nuevo usuario" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Email</label>
-                                    <input type="email" name="email" class="form-control"value="<?php echo $email;?>" placeholder="Escriba aqui el correo del nuevo usuario">
+                                    <input type="email" name="email" class="form-control"value="<?php echo $email;?>" placeholder="Escriba aqui el correo del nuevo usuario" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Contraseña</label>

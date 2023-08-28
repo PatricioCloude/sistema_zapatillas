@@ -16,7 +16,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-12">
-            <h1 class="m-0">Registro de un nuevo Usuario</h1>
+            <h1 class="m-0">Datos del Usuario</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -76,4 +76,5 @@
     <!-- /.content -->
   </div>
 
+  <?php include ('../layout/mensajes.php'); ?>
   <?php include ('../layout/parte2.php'); ?>
