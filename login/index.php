@@ -24,8 +24,8 @@
 
   <?php
   session_start();
-    if(isset($_SESSION['mensaje'])){
-      $respuesta = $_SESSION['mensaje']; ?>
+  if(isset($_SESSION['mensaje'])){
+    $respuesta = $_SESSION['mensaje']; ?>
     <script>
         Swal.fire({
           position: 'top-end',
@@ -35,7 +35,8 @@
           timer: 2000
         })
     </script>
-  <?php    
+  <?php   
+    unset($_SESSION['mensaje']); //destruye la sesion de una variable especifica 
     }
   ?>
 
