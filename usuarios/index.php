@@ -49,6 +49,7 @@
                       <th><center>Nro</center></th>
                       <th><center>Nombres</center></th>
                       <th><center>Email</center></th>
+                      <th><center>Rol</center></th>
                       <th><center>Acciones</center></th>
                     </tr>
                     </thead>
@@ -64,6 +65,7 @@
                             <td><center><?php echo $contador = $contador +1 ;?></center></td>
                             <td><?php echo $usuarios_dato['nombres'];?></td>
                             <td><?php echo $usuarios_dato['email'];?></td>
+                            <td><?php echo $usuarios_dato['rol'];?></td>
                             <td>
                             <center>
                               <div class="btn-group">
@@ -84,6 +86,7 @@
                       <th><center>Nro</center></th>
                       <th><center>Nombres</center></th>
                       <th><center>Email</center></th>
+                      <th><center>Rol</center></th>
                       <th><center>Acciones</center></th>
                     </tr>
                     </tfoot>
