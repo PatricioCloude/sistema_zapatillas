@@ -3,6 +3,8 @@
   include ('layout/sesion.php');
 
   include ('layout/parte1.php');
+  include ('app/controllers/usuarios/listado_de_usuarios.php');
+  include ('app/controllers/roles/listado_de_roles.php');
 
 ?>
 
@@ -14,7 +16,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-12">
-            <h1 class="m-0">Bienvenido al sistema de Ventas de Zapatillas</h1>
+            <h1 class="m-0">Bienvenido al sistema de Ventas de Zapatillas - <?php echo $rol_sesion;?></h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -26,10 +28,78 @@
     <div class="content">
       <div class="container-fluid">
           Contenido del Sistema
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
+          <br><br>
+
+
+
+
+
+
+
+          <div class="row">
+
+            <div class="col-lg-3 col-6">
+
+              <div class="small-box bg-warning">
+                <div class="inner">
+                  <?php 
+                    $contador_de_usuarios = 0;
+                    foreach ($usuarios_datos as $usuarios_dato){
+                      $contador_de_usuarios = $contador_de_usuarios + 1;                    
+                    }
+                  ?>
+                  <h3><?php echo $contador_de_usuarios	;?></h3>
+                  <p>USUARIOS REGISTRADOS</p>
+                </div>
+
+                <a href="<?php echo $URL;?>/usuarios/create.php">
+                  <div class="icon">
+                    <i class="fas fa-user-plus"></i>
+                  </div>
+                </a>
+                <a href="<?php echo $URL;?>/usuarios/" class="small-box-footer">
+                  Mas Detalles <i class="fas fa-arrow-circle-right"></i>
+                </a>
+              </div>
+          </div>    
+
+          <div class="col-lg-3 col-6">
+
+            <div class="small-box bg-info">
+              <div class="inner">
+                <?php 
+                  $contador_de_roles = 0;
+                  foreach ($roles_datos as $roles_dato){
+                    $contador_de_roles = $contador_de_roles + 1;
+                  }
+                ?>
+                <h3><?php echo $contador_de_roles	;?></h3>
+                <p>ROLES REGISTRADOS</p>
+              </div>
+
+              <a href="<?php echo $URL;?>/roles/create.php">
+                <div class="icon">
+                  <i class="fas fa-user-plus"></i>
+                </div>
+              </a>
+              <a href="<?php echo $URL;?>/roles/" class="small-box-footer">
+                Mas Detalles <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content -->
   </div>
 
   <?php include ('layout/parte2.php'); ?>
